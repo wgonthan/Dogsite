@@ -1,0 +1,109 @@
+:root {
+  --teal: #0f4c5c;
+  --teal-dark: #0a3641;
+  --sun: #ffc93c;
+  --paper: #f5fafb;
+  --ink: #1b2a2f;
+  --muted: #5b6e74;
+  --line: #d6e3e6;
+}
+* { box-sizing: border-box; margin: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: "Nunito", system-ui, sans-serif;
+  color: var(--ink);
+  background: var(--paper);
+  line-height: 1.6;
+}
+h1, h2, h3, .logo { font-family: "Fredoka", "Nunito", sans-serif; }
+a { color: inherit; }
+
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 14px 5vw; background: var(--teal); color: #fff;
+  position: sticky; top: 0; z-index: 10;
+}
+.logo { font-size: 1.5rem; font-weight: 700; text-decoration: none; }
+.topbar nav a { margin-left: 22px; text-decoration: none; font-weight: 600; }
+.topbar nav a:hover { color: var(--sun); }
+
+.hero {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center;
+  padding: 60px 5vw; background: var(--teal); color: #fff;
+}
+.hero h1 { font-size: clamp(2rem, 5vw, 3.4rem); line-height: 1.1; margin-bottom: 16px; }
+.hero p { max-width: 46ch; margin-bottom: 26px; color: #d7eaee; }
+.hero-photos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+.hero-photos img {
+  width: 100%; aspect-ratio: 3/4; object-fit: cover; border-radius: 80px 80px 12px 12px;
+  background: var(--teal-dark);
+}
+.hero-photos img:nth-child(2) { margin-top: 28px; }
+
+.btn {
+  display: inline-block; border: 0; cursor: pointer;
+  background: var(--sun); color: var(--ink);
+  font: 700 1rem "Nunito", sans-serif; padding: 12px 24px; border-radius: 999px;
+  text-decoration: none;
+}
+.btn:hover { background: #ffd966; }
+.btn.ghost { background: transparent; border: 2px solid var(--line); }
+:focus-visible { outline: 3px solid var(--sun); outline-offset: 2px; }
+
+.section { padding: 56px 5vw; max-width: 1200px; margin: 0 auto; }
+.section h2 { font-size: 2rem; margin-bottom: 18px; color: var(--teal); }
+
+.filters { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 26px; }
+.filters button {
+  font: 600 .95rem "Nunito", sans-serif; cursor: pointer;
+  padding: 8px 18px; border-radius: 999px;
+  border: 2px solid var(--line); background: #fff; color: var(--ink);
+}
+.filters button[aria-pressed="true"] { background: var(--teal); border-color: var(--teal); color: #fff; }
+
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 24px; }
+.card { background: #fff; border-radius: 18px; overflow: hidden; border: 1px solid var(--line); display: flex; flex-direction: column; }
+.card img {
+  width: 100%; aspect-ratio: 4/3; object-fit: cover; display: block;
+  background: linear-gradient(90deg, #e3eef0, #f1f7f8, #e3eef0);
+}
+.card-body { padding: 16px 18px 20px; display: flex; flex-direction: column; gap: 4px; flex: 1; }
+.card h3 { font-size: 1.3rem; }
+.meta { color: var(--muted); font-size: .92rem; }
+.price { font: 700 1.3rem "Fredoka", sans-serif; color: var(--teal); margin-top: 6px; }
+.card .btn { margin-top: auto; text-align: center; }
+.card-body .btn { margin-top: 12px; }
+.tag { display: inline-block; background: #fff3cc; color: #7a5a00; font-size: .8rem; font-weight: 700; padding: 2px 10px; border-radius: 999px; width: fit-content; }
+.tag.sold { background: #e6e6e6; color: #666; }
+.btn[disabled] { background: #ddd; cursor: not-allowed; color: #777; }
+
+.about ul { padding-left: 20px; max-width: 60ch; }
+.about li { margin-bottom: 8px; }
+
+.footer { background: var(--teal-dark); color: #cfe3e8; text-align: center; padding: 32px 5vw; }
+
+dialog { border: 0; border-radius: 18px; padding: 26px; width: min(420px, 92vw); }
+dialog::backdrop { background: rgba(10, 54, 65, .6); }
+dialog h3 { margin-bottom: 14px; color: var(--teal); }
+dialog label { display: block; font-weight: 600; margin-bottom: 12px; }
+dialog input, dialog textarea {
+  display: block; width: 100%; margin-top: 4px; padding: 10px 12px;
+  border: 2px solid var(--line); border-radius: 10px; font: inherit;
+}
+.dialog-actions { display: flex; justify-content: flex-end; gap: 10px; }
+
+.toast {
+  position: fixed; left: 50%; bottom: 24px; transform: translate(-50%, 120px);
+  background: var(--ink); color: #fff; padding: 12px 22px; border-radius: 999px;
+  transition: transform .3s; z-index: 20;
+}
+.toast.show { transform: translate(-50%, 0); }
+
+@media (max-width: 760px) {
+  .hero { grid-template-columns: 1fr; padding: 40px 5vw; }
+  .topbar nav a { margin-left: 14px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .toast { transition: none; }
+}

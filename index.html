@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Happy Tails – Puppies for Sale</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <a href="#" class="logo">🐾 Happy Tails</a>
+    <nav>
+      <a href="#dogs">Dogs</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="hero-text">
+      <h1>Find the dog who's been waiting for you</h1>
+      <p>Healthy, vaccinated and well-loved puppies from trusted breeders. Pick a friend and bring them home.</p>
+      <a class="btn" href="#dogs">See available dogs</a>
+    </div>
+    <div class="hero-photos" id="heroPhotos" aria-hidden="true"></div>
+  </section>
+
+  <main id="dogs" class="section">
+    <h2>Dogs for sale</h2>
+    <div class="filters" id="filters" role="group" aria-label="Filter by size"></div>
+    <div class="grid" id="grid"></div>
+  </main>
+
+  <section id="about" class="section about">
+    <h2>Why buy from us</h2>
+    <ul>
+      <li>Every puppy is vet-checked and vaccinated.</li>
+      <li>Meet the puppy and its parents before you buy.</li>
+      <li>Free advice on food, training and care after you take them home.</li>
+    </ul>
+  </section>
+
+  <footer id="contact" class="footer">
+    <p>Call or WhatsApp: <strong>+91 98765 43210</strong> · hello@happytails.example</p>
+    <p>© <span id="year"></span> Happy Tails</p>
+  </footer>
+
+  <dialog id="dialog">
+    <form method="dialog" id="inquiryForm">
+      <h3 id="dialogTitle">Ask about this dog</h3>
+      <label>Your name <input type="text" id="name" required></label>
+      <label>Phone number <input type="tel" id="phone" required></label>
+      <label>Message <textarea id="msg" rows="3" placeholder="When can I visit?"></textarea></label>
+      <div class="dialog-actions">
+        <button type="button" class="btn ghost" id="cancelBtn">Cancel</button>
+        <button type="submit" class="btn">Send request</button>
+      </div>
+    </form>
+  </dialog>
+
+  <div class="toast" id="toast" role="status"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
